@@ -1,0 +1,7 @@
+.idea
+.DS_Store
+*.pyc
+media
+Python351
+Django
+/cartelera.front/node_modules

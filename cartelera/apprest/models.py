@@ -11,4 +11,5 @@ class Film(models.Model):
     duration = models.IntegerField()
     producer = models.TextField(max_length=100)
     gender = models.TextField(max_length=100)
+    img = models.TextField()
     director = models.ForeignKey(Director)
