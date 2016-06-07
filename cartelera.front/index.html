@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="cartelera">
 
 <head>
 
@@ -17,8 +17,6 @@
     <!-- Custom CSS -->
     <link href="lib/bootstrap/css/agency.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="sass/partials/_home.scss" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -88,7 +86,7 @@
     </header>
 
     <!-- Billboard Section -->
-    <section id="billboard">
+    <section id="billboard" ng-controller="FilmsController">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -97,21 +95,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
+
+
+                <div class="col-md-4 col-sm-6 portfolio-item" ng-repeat="movie in movies">
                     <a href="#warcraft" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/cartelera/warcraft.jpg" class="img-responsive film" alt="">
+                        <img ng-src="img/cartelera/warcraft.jpg" class="img-responsive film" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>WARCRAFT: EL ORIGEN</h4>
-                        <p class="text-muted">Duncan Jones</p>
+                        <h4>{{ movie.name }}</h4>
+                        <p class="text-muted" ng-repeat="director in movie.directors">{{ $index != movie.directors.length - 1 ? director.name + ',' : director.name }}</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+
+
+
+                <!--<div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#xmen" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -180,7 +183,7 @@
                         <h4>UN DOCTOR EN LA CAMPIÑA</h4>
                         <p class="text-muted">Thomas Lilti</p>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
@@ -715,6 +718,8 @@
     </div>
     <!-- jQuery -->
     <script src="lib/jquery/jquery.js"></script>
+     <script src="node_modules/URIjs/src/URI.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="dist/script.min.js"></script>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>

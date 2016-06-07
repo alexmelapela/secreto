@@ -11,18 +11,15 @@ var title = 'Cartelera';
 
 gulp.task('compass', ['clean-styles'], function() {
   gulp.src('sass/**/*.scss')
-    .pipe(plumber({errorHandler: notify.onError({message: 'Commpass compile error', title: title})}))
     .pipe(compass({
       config_file: './config.rb'
     }))
-    .pipe(notify('Finished compass!!'));
 });
 
 gulp.task('css_lib', function(){
   return gulp.src([
 
     ])
-    .pipe(plumber({errorHandler: notify.onError({message: 'CSS concat error', title: title})}))
     .pipe(concat('lib.css'))
     .pipe(gulp.dest('css'));
 });
@@ -31,18 +28,15 @@ gulp.task('minify', function(){
   return gulp.src([
     'js/**/*.js'
   ])
-    .pipe(plumber({errorHandler: notify.onError({message: 'JS minify error', title: title})}))
     .pipe(concat('script.min.js'))
     .pipe(uglify({mangle:false}))
     .pipe(gulp.dest('dist'))
-    .pipe(notify('Finished minification!!'));
 });
 
 gulp.task('minify_lib', function() {
   return gulp.src([
    
   ])
-    .pipe(plumber({errorHandler: notify.onError({message: 'JS minify error', title: title})}))
     .pipe(concat('lib.min.js'))
     .pipe(uglify({mangle:false}))
     .pipe(gulp.dest('dist'));
