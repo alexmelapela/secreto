@@ -17,14 +17,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from apprest.views import FilmViewSet, DirectorViewSet, ActorViewSet, FilmDirectorsViewSet, FilmActorsViewSet
+from apprest.views import FilmViewSet, DirectorViewSet, ActorViewSet
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'films', FilmViewSet)
 router.register(r'directors', DirectorViewSet)
 router.register(r'actors', ActorViewSet)
-router.register(r'film-director', FilmDirectorsViewSet)
-router.register(r'film-actor', FilmActorsViewSet)
 
 urlpatterns = patterns('',
     # Examples:

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Film, Director, Actor, FilmDirectors, FilmActors
-from .serializers import FilmSerializer, DirectorSerializer, ActorSerializer, FilmDirectorsSerializer, FilmActorsSerializer
+from .models import Film, Director, Actor
+from .serializers import FilmSerializer, DirectorSerializer, ActorSerializer
 from rest_framework import viewsets
 
 class FilmViewSet(viewsets.ModelViewSet):
@@ -17,13 +17,3 @@ class ActorViewSet(viewsets.ModelViewSet):
  
     serializer_class = ActorSerializer
     queryset = Actor.objects.all()
-    
-class FilmDirectorsViewSet(viewsets.ModelViewSet):
- 
-    serializer_class = FilmDirectorsSerializer
-    queryset = FilmDirectors.objects.all()
-
-class FilmActorsViewSet(viewsets.ModelViewSet):
- 
-    serializer_class = FilmActorsSerializer
-    queryset = FilmActors.objects.all()
